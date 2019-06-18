@@ -1,2 +1,10 @@
-h1 Divisions#edit
-p Find me in app/views/divisions/edit.html.slim
+=form_with model: @division, local: true do |form|
+
+  p
+    = form.label :'division name'
+    = form.text_field :division_name
+
+  p
+    = form.submit
+    = link_to 'Back', divisions_path
+end
