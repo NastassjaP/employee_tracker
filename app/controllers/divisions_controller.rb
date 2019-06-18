@@ -1,6 +1,6 @@
 class DivisionsController < ApplicationController
   def index
-    @divisions=Division.all
+    @divisions = Division.all
   end
 
   def edit
