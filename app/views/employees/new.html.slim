@@ -1,0 +1,9 @@
+=form_with model: [@division,@division.employees.build], local: true do |form|
+
+  p
+    = form.label :'employee name'
+    = form.text_field :employee_name
+
+  p
+    = form.submit
+    = link_to 'Back', divisions_path

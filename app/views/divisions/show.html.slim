@@ -1,6 +1,17 @@
 p
-  = 'Division Name: '
+  strong = 'Division Name: '
   = @division.division_name
+  br
+  = link_to 'Edit ', edit_division_path(@division)
+  /t
+  = link_to 'Back', divisions_path
 
-= link_to 'Edit ', edit_division_path(@division)
-= link_to 'Back', divisions_path
+  h2 Employees
+
+
+  -@division.employees.each do |employee|
+      =employee.employee_name
+      br
+
+
+= link_to 'New employee', new_division_employee_path(@division)
