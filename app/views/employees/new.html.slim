@@ -1,9 +1,10 @@
 =form_with model: [@division,@division.employees.build], local: true do |form|
 
   p
-    = form.label :'employee name'
+    = form.label :'Employee Name '
     = form.text_field :employee_name
 
   p
     = form.submit
+  p
     = link_to 'Back', divisions_path

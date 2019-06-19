@@ -10,8 +10,9 @@ p
 
 
   -@division.employees.each do |employee|
-      =employee.employee_name
-      br
+    =>employee.employee_name
+    =<link_to 'Delete', [employee.division, employee], method: :delete, data: { confirm: 'Are you sure?' }
+    br
 
 
 = link_to 'New employee', new_division_employee_path(@division)
