@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def self.types
-  %w(HrUser ProjectUser)
+    %w(HrUser ProjectUser)
   end
-  
+
 end

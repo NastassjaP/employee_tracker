@@ -1,3 +1,8 @@
-h1 Welcome to the HR App
-= link_to 'Divisions', controller: 'divisions'
+h1 Welcome to the Employee Tracker App
+
+-if current_user.type=='HrUser'
+  = link_to 'See Divisions', controller: 'divisions'
+-elsif current_user.type=='ProjectUser'
+  = link_to 'See Projects', controller: 'projects'
+p
 =>link_to 'Sign Out', destroy_user_session_path, method: :delete

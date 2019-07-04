@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  patch 'projects/:id' => 'projects#add', as: 'add'
+
+  resources :projects
   resources :divisions
 
   devise_scope :user do
@@ -14,6 +17,10 @@ Rails.application.routes.draw do
   end
 
   resources :divisions do
+    resources :employees
+  end
+
+  resources :projects do
     resources :employees
   end
 

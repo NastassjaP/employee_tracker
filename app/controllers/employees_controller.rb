@@ -22,8 +22,21 @@ def destroy
     redirect_to @division
   end
 
+  def edit
+    @employee=Employee.find(params[:id])
+    @division = @employee.division_id
+  end
+
+  def update
+    @employee=Employee.find(params[:id])
+    @division = @employee.division_id
+    @employee.update(employee_params)
+    redirect_to @division
+  end
+
+
 private
 def employee_params
-  params.require(:employee).permit(:employee_name)
+  params.require(:employee).permit(:employee_name,:division_id,:project_id)
 end
 end

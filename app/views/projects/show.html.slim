@@ -1,0 +1,23 @@
+p
+  strong = 'Project Name: '
+  = @project.name
+  br
+  strong = 'Project Status: '
+  -if @project.status
+    b Active
+  -else
+    b Inactive
+  br
+  = link_to 'Edit ', edit_project_path(@project)
+  /t
+  = link_to 'Back', projects_path
+
+  h2 Employees
+
+
+  -@project.employees.each do |employee|
+    =>employee.employee_name
+    =link_to 'Delete', [employee.project, employee], method: :delete, data: { confirm: 'Are you sure?' }
+    br
+
+=render 'new_employee_to_project'
