@@ -1,0 +1,2 @@
+class ProjectUser < User
+end
