@@ -17,7 +17,7 @@ p
 
   -@project.employees.each do |employee|
     =>employee.employee_name
-    =link_to 'Delete', [employee.project, employee], method: :delete, data: { confirm: 'Are you sure?' }
+    =link_to 'Remove', [employee.project, employee], method: :remove, data: { confirm: 'Are you sure?' }
     br
 
 =render 'new_employee_to_project'

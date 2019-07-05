@@ -1,10 +1,10 @@
 h2 Add Employee To Project
 
-=form_with model: @project, local: true, url: add_path(@project) do |form|
+=form_with model: @project, local: true do |form|
 
   p
     =>form.label :'Employee Name'
-    = form.collection_select :employee_id, Employee.all, :id, :employee_name, prompt: true
-    =>button_to("Add Employee",:controller => "projects", :action => "add",:params =>{:project_id=>@project.id})
+    = form.collection_select :employee_id, Employee.where(project_id: nil), :id, :employee_name, prompt: true
+    =>button_to("Add Employee",:controller => "projects",:params =>{:project_id=>@project.id})
 p
   = link_to 'Back', projects_path

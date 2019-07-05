@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  patch 'projects/:id' => 'projects#add', as: 'add'
 
   resources :projects
   resources :divisions
@@ -24,5 +23,7 @@ Rails.application.routes.draw do
     resources :employees
   end
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post 'projects/:id/employees/:id' => 'projects#remove', as: 'remove_employee'
+
+
 end

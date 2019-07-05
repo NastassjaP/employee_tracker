@@ -8,9 +8,16 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    if params[:commit]=="Save"
     @project=Project.find(params[:id])
     @project.update(project_params)
     redirect_to @project
+  else
+    @project=Project.find(params[:id])
+    @employee=Employee.find(params[:project][:employee_id])
+    @employee.update(:project_id=>@project.id)
+    redirect_to @project
+  end
   end
 
   def new
@@ -25,7 +32,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project=Project.find(params[:id])
-    @employees=@project.employees.all
+    @employees=Employee.where(project_id: @project.id)
   end
 
 
@@ -35,12 +42,13 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-  def add
-    @project=Project.find(params[:id])
-    @employee=Employee.find(params[:project][:employee_id])
-    @employee.update(:project_id=>@project.id)
+  def remove
+    @employee=Employee.find(params[:id])
+    @project=@employee.project
+    @employee.update(:project_id=>nil)
     redirect_to @project
   end
+
 
   private
   def project_params
