@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   has_many :employees
 
-  def self.statuses
-    %w( 0 1)
-  end
+
+  validates :status,:name, presence: true
+
 end

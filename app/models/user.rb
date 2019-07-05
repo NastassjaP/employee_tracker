@@ -4,9 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
   def self.types
     %w(HrUser ProjectUser)
   end
+
+  validates :email, :encrypted_password, :type, presence: true
+  validates_uniqueness_of :email
 
 end
